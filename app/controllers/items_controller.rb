@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   def index
-  	@items = Item.all
+  	@items = Item.all.order('priority ASC').where(complete: false)
   end
 
   def new
@@ -39,10 +39,14 @@ class ItemsController < ApplicationController
   	redirect_to items_path
   end
 
+  def completed
+  	@items = Item.all.order('priority ASC').where(complete: true)
+  end
+
 private
 
 def item_params
-	params.require(:item).permit(:name, :description)
+	params.require(:item).permit(:name, :description, :complete, :priority)
 end
 
 end

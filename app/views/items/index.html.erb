@@ -1,9 +1,2 @@
 <h1> To-Do List </h1>
-<hr/>
-<% @items.each do |item| %>
-	<h2><%= item.name %></h2>
-	<h3><%= item.description %></h3>
-	<%= link_to 'Show To-Do', item_path(item) %>
-	<%= link_to 'Edit To-Do', edit_item_path(item) %>
-	<%= link_to 'Delete', item_path(item), method: :delete %>
-<% end %>
+<%= render partial: 'shared_index' %>

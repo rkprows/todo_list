@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
  resources :items
  get 'items/edit'
+ get '/completed' => 'items#completed', as: :completed
 
 
   # The priority is based upon order of creation: first created -> highest priority.
